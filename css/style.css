@@ -1,0 +1,131 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  .game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .invisble {
+    visibility: hidden;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .heading {
+    font-size: 3em;
+  }
+  
+  .tile-container {
+    display: grid;
+    grid-template-rows: 180px 180px;
+    grid-template-columns: 180px 180px;
+    grid-gap: 40px;
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 50px;
+  }
+  
+  .unclickable {
+    pointer-events: none;
+  }
+  
+  .tile-red {
+    background-color: red;
+  }
+  
+  .tile-red:active,
+  .tile-red.activated {
+    background-color: #ff5c36;
+  }
+  
+  .tile-green {
+    background-color: green;
+  }
+  
+  .tile-green:hover,
+  .tile-green:focus {
+    background-color: #8cc218;
+  }
+  
+  .tile-green:active,
+  .tile-green.activated {
+    background-color: #a0ea00;
+  }
+  
+  .tile-yellow {
+    background-color: yellow;
+  }
+  
+  .tile-yellow:hover,
+  .tile-yellow:focus {
+    background-color: #ffb900;
+  }
+  
+  .tile-yellow:active,
+  .tile-yellow.activated {
+    background-color: #ffca3d;
+  }
+  
+  .tile-blue {
+    background-color: blue;
+  }
+  
+  .tile-blue:hover,
+  .tile-blue:focus {
+    background-color: #139ddd;
+  }
+  
+  .tile-blue:active,
+  .tile-blue.activated {
+    background-color: #2bbcff;
+  }
+  
+  .info-section {
+    text-align: center;
+  }
+  
+  .start-button {
+    display: inline-block;
+    height: 38px;
+    padding: 0 30px;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+  }
+  
+  .start-button:hover {
+    color: #333;
+    border-color: #888;
+    outline: 0;
+  }
+  
+  .info {
+    font-size: 22px;
+  }
+  
+    .heading {
+      font-size: 2em;
+    }
