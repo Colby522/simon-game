@@ -1,17 +1,13 @@
-// /*-------------------------------- Constants --------------------------------*/
-
 let sequence = [];
 let humanSequence = [];
 let level = 0;
 
-// --------------------------------Query Selectors -----------------------------
-
-const startButton = document.querySelector('.start');
+const startButton = document.querySelector('.start-button');
 const info = document.querySelector('.info');
 const heading = document.querySelector('.heading');
 const tileContainer = document.querySelector('.container');
 
-function resetGame(text) {
+const resetGame = (text) => {
   heading.textContent = text
   sequence = [];
   humanSequence = [];
@@ -38,7 +34,7 @@ const activateTile = (color) => {
   }, 300);
 }
 
-function playRound(nextSequence) {
+const playRound = (nextSequence) => {
   nextSequence.forEach((color, index) => {
     setTimeout(() => {
       activateTile(color);
@@ -46,14 +42,14 @@ function playRound(nextSequence) {
   });
 }
 
-function nextStep() {
+const nextStep = () => {
   const tiles = ['red', 'green', 'blue', 'yellow'];
   const random = tiles[Math.floor(Math.random() * tiles.length)];
 
   return random;
 }
 
-function nextRound() {
+const nextRound = () => {
   level += 1;
 
   tileContainer.classList.add('unclickable');
@@ -70,7 +66,7 @@ function nextRound() {
   }, level * 600 + 1000);
 }
 
-function handleClick(tile) {
+const handleClick = (tile) => {
   const index = humanSequence.push(tile) - 1;
   const sound = document.querySelector(`[data-sound='${tile}']`);
   sound.play();
@@ -78,7 +74,7 @@ function handleClick(tile) {
   const remainingTaps = sequence.length - humanSequence.length;
 
   if (humanSequence[index] !== sequence[index]) {
-    return resetGame('Game Over. Press Start to Try Again.');
+    return resetGame('Game Over. Press Start to Try Again');
   }
 
   if (humanSequence.length === sequence.length) {
@@ -99,7 +95,7 @@ function handleClick(tile) {
   }`;
 }
 
-function startGame() {
+const startGame = () => {
   startButton.classList.add('hidden');
   info.classList.remove('hidden');
   tileContainer.classList.remove('unclickable');
