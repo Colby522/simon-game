@@ -4,30 +4,29 @@ let sequence = [];
 let humanSequence = [];
 let level = 0;
 
-// --------------------------------query Selectors -----------------------------
+// --------------------------------Query Selectors -----------------------------
 
-const startButton = document.querySelector('.js-start');
-const info = document.querySelector('.js-info');
-const heading = document.querySelector('.js-heading');
-const tileContainer = document.querySelector('.js-container');
+const startButton = document.querySelector('.start');
+const info = document.querySelector('.info');
+const heading = document.querySelector('.heading');
+const tileContainer = document.querySelector('.container');
 
 function resetGame(text) {
-  alert(text);
+  heading.textContent = text
   sequence = [];
   humanSequence = [];
   level = 0;
   startButton.classList.remove('hidden');
-  heading.textContent = 'Simon Game';
   info.classList.add('hidden');
   tileContainer.classList.add('unclickable');
 }
 
-function humanTurn(level) {
+const humanTurn = (level) => {
   tileContainer.classList.remove('unclickable');
-  info.textContent = `Your turn: ${level} Tap${level > 1 ? 's' : ''}`;
+  info.textContent = `Your turn: ${level} Tap`;
 }
 
-function activateTile(color) {
+const activateTile = (color) => {
   const tile = document.querySelector(`[data-tile='${color}']`);
   const sound = document.querySelector(`[data-sound='${color}']`);
 
@@ -79,16 +78,16 @@ function handleClick(tile) {
   const remainingTaps = sequence.length - humanSequence.length;
 
   if (humanSequence[index] !== sequence[index]) {
-    return resetGame('Oops! Game over, you pressed the wrong tile.');
+    return resetGame('Game Over. Press Start to Try Again.');
   }
 
   if (humanSequence.length === sequence.length) {
     if (humanSequence.length === 20) {
-      return resetGame('Congrats, You Legend! You completed all the levels');
+      return resetGame('Congratulations! You beat all 20 Levels!');
     }
 
     humanSequence = [];
-    info.textContent = 'Success! Keep going!';
+    info.textContent = 'Great Job!';
     setTimeout(() => {
       nextRound();
     }, 1000);
